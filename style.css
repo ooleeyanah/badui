@@ -13,6 +13,7 @@ h1 {
   font-family: dingbats;
   text-shadow: 0cqi;
   padding: 0cap;
+  font-size : 32px;
 }
 
 h2 { 
@@ -20,6 +21,8 @@ h2 {
 }
 
 p {
+  font-size : 22px;
+
 }
 
 
