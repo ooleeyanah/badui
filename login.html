@@ -3,12 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
+    <title>Holberton Sign-up</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Your visible content goes here -->
-    <h1>Hello World!</h1>
+    <h1 id="welcome">Welcome to Holberton!</h1>
+    <h2>Scroll down to use our super-easy and convenient sign-up page, designed by our finest students.</h2>
+    <form>
+            <div class="form-group">
+                <label for="name">First name:</label>
+                <input type="text" id="fname" name="first_name" minlength="10" placeholder="JoeJoeJoeJ" required>
+                <p id="fname-req"><i>Must be at least 10 characters.</i></p>
+            </div>
+            <div class="form-group">
+                <label for="name">Last name:</label>
+                <input type="text" id="lname" name="last_name" pattern="(?=.[+^~`|])" placeholder="Squires+~`"required>
+                <p id="lname-req"><i>Must include a special character.</i></p>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="uname" name="user_name" required>
+            </div>
+
+            <div class="form-group">
+                <button>Randomize</button>
+                <label for="password">Password:</label>
+                <input id="text" name="password" required readonly></input>
+            </div>
+            
+            <button type="submit">Sign up!</button>
+        </form>
     <script src="script.js"></script>
 </body>
 </html>
