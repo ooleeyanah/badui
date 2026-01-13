@@ -12,12 +12,13 @@
     <form>
             <div class="form-group">
                 <label for="name">First name:</label>
-                <input type="text" id="fname" name="first_name" minlength="10" required>
+                <input type="text" id="fname" name="first_name" minlength="10" placeholder="JoeJoeJoeJ" required>
                 <p id="fname-req"><i>Must be at least 10 characters.</i></p>
             </div>
             <div class="form-group">
                 <label for="name">Last name:</label>
-                <input type="text" id="lname" name="last_name" required>
+                <input type="text" id="lname" name="last_name" pattern="(?=.[+^~`|])" placeholder="Squires+~`"required>
+                <p id="lname-req">Must include a special character.</p>
             </div>
             <div class="form-group">
                 <label for="username">Username:</label>
