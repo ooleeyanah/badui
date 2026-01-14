@@ -85,7 +85,7 @@ text {
   padding: 0cap;
   font-size : 32px;
   color: red;
-  background-color: light blue;
+  background-color: green;
 }
 
 #text {
@@ -98,19 +98,17 @@ text {
 }
 
 #signup-btn {
-  color: #524d07;
+  color: red;
   text-align: left;
   font-family: cursive;
   text-shadow: 0cqi;
   font-size : 32px;
-  background-color: green;
+  background-color: lightblue;
   position: absolute;
   padding: 10px 20px;
-  background-color: lightblue;
   border: none;
   cursor: pointer;
-  color: red;
-  background-color: green;
+  text-color: red;
 }
 
 span {
