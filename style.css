@@ -101,10 +101,11 @@ text {
   color: #524d07;
   text-align: left;
   font-family: cursive;
-  font-family: dingbats;
   text-shadow: 0cqi;
-  padding: 10px 20px;
+  padding: 0cap;
   font-size : 32px;
+  color: red;
+  background-color: green;
 }
 
 span {
