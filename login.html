@@ -9,7 +9,8 @@
 <body>
     <h1 id="welcome">Welcome to Holberton!</h1>
     <h2>Scroll down to use our super-easy and convenient sign-up page, designed by our finest students.</h2>
-    <form>
+    <div id="feedback"></div>
+    <form id="signup-form" novalidate>
         <img src="Provocative Pop-Up Ad with Hypnotic Design.png" name ="ad" id="ad-1">
             <div class="form-group">
                 <label for="name">First name:</label>
@@ -37,6 +38,18 @@
             </div>
             <img src="Provocative Pop-Up Ad with Hypnotic Design (4).png" name ="ad" id="ad-4">
             <button id="signup-btn">Sign up!</button>
+        </form>
+    <h2>Already have an account? Log in below.</h2>
+    <form id="login-form" novalidate>
+            <div class="form-group">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" name="login_user_name" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="login_password" required>
+            </div>
+            <button id="login-btn">Log in</button>
         </form>
     <script src="script.js"></script>
 </body>

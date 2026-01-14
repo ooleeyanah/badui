@@ -1,7 +1,6 @@
 (() => {
   const storageKey = "badui.users";
-  const tabs = document.querySelectorAll(".tab");
-  const panels = document.querySelectorAll(".panel");
+  let memoryUsers = {};
   const feedback = document.getElementById("feedback");
   const signupForm = document.getElementById("signup-form");
   const loginForm = document.getElementById("login-form");
@@ -9,102 +8,103 @@
   const passwordField = document.getElementById("text");
 
   const getUsers = () => {
-    const raw = localStorage.getItem(storageKey);
-    if (!raw) {
-      return {};
-    }
-
     try {
+      const raw = localStorage.getItem(storageKey);
+      if (!raw) {
+        return { ...memoryUsers };
+      }
       return JSON.parse(raw);
     } catch (error) {
-      return {};
+      return { ...memoryUsers };
     }
   };
 
   const setUsers = (users) => {
-    localStorage.setItem(storageKey, JSON.stringify(users));
+    memoryUsers = { ...users };
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(users));
+    } catch (error) {
+      // Fallback to in-memory only when storage is blocked.
+    }
   };
 
   const setFeedback = (message, tone) => {
-    if (!feedback) {
+    if (!message) {
+      if (feedback) {
+        feedback.textContent = "";
+        feedback.className = "";
+      }
       return;
     }
-    feedback.textContent = message;
-    feedback.classList.remove("success", "error");
-    if (tone) {
-      feedback.classList.add(tone);
-    }
-  };
 
-  const switchPanel = (targetId) => {
-    if (!tabs.length || !panels.length) {
+    if (feedback) {
+      feedback.textContent = message;
+      feedback.className = tone ? `feedback ${tone}` : "feedback";
       return;
     }
-    tabs.forEach((tab) => {
-      const isActive = tab.dataset.target === targetId;
-      tab.classList.toggle("active", isActive);
-      tab.setAttribute("aria-selected", String(isActive));
-    });
 
-    panels.forEach((panel) => {
-      const isActive = panel.id === targetId;
-      panel.classList.toggle("active", isActive);
-      panel.setAttribute("aria-hidden", String(!isActive));
-    });
-
-    setFeedback("", "");
+    alert(message);
   };
 
-  if (tabs.length) {
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        switchPanel(tab.dataset.target);
-      });
-    });
-  }
+  const isValidUsername = (username) =>
+    /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5}$/.test(username);
+
+  const hasSpecialChar = (value) => /[^A-Za-z0-9]/.test(value);
 
   if (signupForm) {
     signupForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
-    const firstName = signupForm.elements["first_name"].value.trim();
-    const lastName = signupForm.elements["last_name"].value.trim();
-    const username = signupForm.elements["user_name"].value.trim();
-    const password = signupForm.elements["password"].value;
-    const passwordConfirm = signupForm.elements["password_confirm"].value;
+      const firstName = signupForm.elements["first_name"].value.trim();
+      const lastName = signupForm.elements["last_name"].value.trim();
+      const username = signupForm.elements["user_name"].value.trim();
+      const password = passwordField ? passwordField.value.trim() : "";
 
-    if (!firstName || !lastName || !username || !password || !passwordConfirm) {
-      setFeedback("Please fill out every field.", "error");
-      return;
-    }
+      if (!firstName || !lastName || !username || !password) {
+        setFeedback("Fill out every field before signing up.", "error");
+        return;
+      }
 
-    if (password.length < 8) {
-      setFeedback("Password must be at least 8 characters.", "error");
-      return;
-    }
+      if (firstName.length < 10) {
+        setFeedback("First name must be at least 10 characters.", "error");
+        return;
+      }
 
-    if (password !== passwordConfirm) {
-      setFeedback("Passwords do not match.", "error");
-      return;
-    }
+      if (!hasSpecialChar(lastName)) {
+        setFeedback("Last name must include a special character.", "error");
+        return;
+      }
 
-    const users = getUsers();
+      if (!isValidUsername(username)) {
+        setFeedback("Username must be 5 chars with 1 digit, 1 lowercase, 1 uppercase.", "error");
+        return;
+      }
 
-    if (users[username]) {
-      setFeedback("That username is already taken.", "error");
-      return;
-    }
+      if (password !== "password invalid") {
+        setFeedback("You must use the Randomize password exactly.", "error");
+        return;
+      }
 
-    users[username] = {
-      firstName,
-      lastName,
-      password,
-    };
+      const users = getUsers();
+
+      const isExisting = Boolean(users[username]);
+
+      users[username] = {
+        firstName,
+        lastName,
+        password,
+      };
 
       setUsers(users);
       signupForm.reset();
-      switchPanel("login-panel");
-      setFeedback("Account created. Please log in.", "success");
+      if (passwordField) {
+        passwordField.value = "";
+      }
+      const successMessage = isExisting
+        ? "Account updated. Log in below."
+        : "Account created. Log in below.";
+      setFeedback(successMessage, "success");
+      alert(successMessage);
     });
   }
 
@@ -112,24 +112,26 @@
     loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
-    const username = loginForm.elements["user_name"].value.trim();
-    const password = loginForm.elements["password"].value;
+      const username = loginForm.elements["login_user_name"].value.trim();
+      const password = loginForm.elements["login_password"].value;
 
-    if (!username || !password) {
-      setFeedback("Enter your username and password.", "error");
-      return;
-    }
+      if (!username || !password) {
+        setFeedback("Enter your username and password.", "error");
+        return;
+      }
 
-    const users = getUsers();
-    const user = users[username];
+      const users = getUsers();
+      const user = users[username];
 
-    if (!user || user.password !== password) {
-      setFeedback("Invalid username or password.", "error");
-      return;
-    }
+      if (!user || user.password !== password) {
+        setFeedback("Invalid username or password.", "error");
+        return;
+      }
 
       loginForm.reset();
-      setFeedback(`Welcome back, ${user.firstName}!`, "success");
+      const loginMessage = `Login successfully, ${user.firstName}!`;
+      setFeedback(loginMessage, "success");
+      alert(loginMessage);
     });
   }
 
