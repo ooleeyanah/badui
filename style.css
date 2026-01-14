@@ -105,7 +105,7 @@ text {
   font-family: cursive;
   font-family: dingbats;
   text-shadow: 0cqi;
-  padding: 0cap;
+  padding: 10px 20px;
   font-size : 32px;
 }
 
@@ -140,6 +140,12 @@ input:hover {
 }
 
 .random_butt {
+  color: #524d07;
+  text-align: left;
+  font-family: cursive;
+  text-shadow: 0cqi;
+  font-size : 32px;
+  background-color: green;
   position: absolute;
   padding: 10px 20px;
   background-color: lightblue;
