@@ -2,30 +2,47 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: sans-serif;
-}
-
 h1 { 
-  color: #524d07;
-  text-align: left;
-  font-family: cursive;
-  font-family: dingbats;
+  color: #f2e312;
+  text-align: right;
+  font-family: cursive, dingbats;
   text-shadow: 0cqi;
-  padding: 0cap;
+  padding: 6cap;
   font-size : 32px;
 }
 
 h2 { 
-  colour: #e0ded7;
+  color: #e0ded7;
+  text-align: center;
+  padding-left: 100px;
 }
 
-fname {
+#fname {
   text-decoration: underline;
-  text-size :11px;
+  
+  text-size-adjust :11px;
 }
 
-lname {
+#lname {
+  color: #524d07;
+  text-align: left;
+  font-family: cursive;
+  text-shadow: 0cqi;
+  padding: 0cap;
+  font-size : 32px;
+}
+
+#uname {
+  color: #524d07;
+  text-align: right;
+  font-family: cursive;
+  font-family: dingbats;
+  text-shadow: 0cqi;
+  padding: 0cap;
+  font-size : 32px;
+}
+
+#random-btn {
   color: #524d07;
   text-align: left;
   font-family: cursive;
@@ -35,7 +52,7 @@ lname {
   font-size : 32px;
 }
 
-uname {
+#text {
   color: #524d07;
   text-align: left;
   font-family: cursive;
@@ -45,7 +62,7 @@ uname {
   font-size : 32px;
 }
 
-random-btn {
+#signup-btn {
   color: #524d07;
   text-align: left;
   font-family: cursive;
@@ -55,27 +72,7 @@ random-btn {
   font-size : 32px;
 }
 
-text {
-  color: #524d07;
-  text-align: left;
-  font-family: cursive;
-  font-family: dingbats;
-  text-shadow: 0cqi;
-  padding: 0cap;
-  font-size : 32px;
-}
-
-signup-btn {
-  color: #524d07;
-  text-align: left;
-  font-family: cursive;
-  font-family: dingbats;
-  text-shadow: 0cqi;
-  padding: 0cap;
-  font-size : 32px;
-}
-
-fname-req {
+#fname-req {
   text-size: 10px;
   color: #e0ded7
 
