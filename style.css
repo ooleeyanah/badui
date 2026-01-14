@@ -109,8 +109,12 @@ img {
   height: 250px;
   width: auto;
   left: 50%;
+  transition: transform 0.3s ease;
 }
 #ad-2, #ad-3, #ad-5 {
   height: 250px;
   width: auto;
+}
+img:hover {
+  transform: scale(1.15);
 }
