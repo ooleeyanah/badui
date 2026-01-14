@@ -17,4 +17,4 @@ An intentionally bad UI login page for the Holberton Hackathon (January 2026).
 
 ### License
 
-This project is licensed under the badui License - see the LICENSE.md file for details
+This project is licensed under the badui License
