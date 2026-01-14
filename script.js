@@ -6,6 +6,8 @@
   const loginForm = document.getElementById("login-form");
   const randomButton = document.getElementById("random-btn");
   const passwordField = document.getElementById("text");
+  const scrollRoot = document.scrollingElement || document.documentElement;
+  let isInvertedScroll = false;
 
   const getUsers = () => {
     try {
@@ -140,4 +142,20 @@
       passwordField.value = "password invalid";
     });
   }
+
+  window.addEventListener(
+    "wheel",
+    (event) => {
+      if (isInvertedScroll) {
+        return;
+      }
+      isInvertedScroll = true;
+      event.preventDefault();
+      scrollRoot.scrollTop -= event.deltaY;
+      requestAnimationFrame(() => {
+        isInvertedScroll = false;
+      });
+    },
+    { passive: false }
+  );
 })();
