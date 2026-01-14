@@ -5,6 +5,8 @@
   const feedback = document.getElementById("feedback");
   const signupForm = document.getElementById("signup-form");
   const loginForm = document.getElementById("login-form");
+  const randomButton = document.getElementById("random-btn");
+  const passwordField = document.getElementById("text");
 
   const getUsers = () => {
     const raw = localStorage.getItem(storageKey);
@@ -24,6 +26,9 @@
   };
 
   const setFeedback = (message, tone) => {
+    if (!feedback) {
+      return;
+    }
     feedback.textContent = message;
     feedback.classList.remove("success", "error");
     if (tone) {
@@ -32,6 +37,9 @@
   };
 
   const switchPanel = (targetId) => {
+    if (!tabs.length || !panels.length) {
+      return;
+    }
     tabs.forEach((tab) => {
       const isActive = tab.dataset.target === targetId;
       tab.classList.toggle("active", isActive);
@@ -47,14 +55,17 @@
     setFeedback("", "");
   };
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      switchPanel(tab.dataset.target);
+  if (tabs.length) {
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        switchPanel(tab.dataset.target);
+      });
     });
-  });
+  }
 
-  signupForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+  if (signupForm) {
+    signupForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
     const firstName = signupForm.elements["first_name"].value.trim();
     const lastName = signupForm.elements["last_name"].value.trim();
@@ -90,14 +101,16 @@
       password,
     };
 
-    setUsers(users);
-    signupForm.reset();
-    switchPanel("login-panel");
-    setFeedback("Account created. Please log in.", "success");
-  });
+      setUsers(users);
+      signupForm.reset();
+      switchPanel("login-panel");
+      setFeedback("Account created. Please log in.", "success");
+    });
+  }
 
-  loginForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+  if (loginForm) {
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
     const username = loginForm.elements["user_name"].value.trim();
     const password = loginForm.elements["password"].value;
@@ -115,7 +128,14 @@
       return;
     }
 
-    loginForm.reset();
-    setFeedback(`Welcome back, ${user.firstName}!`, "success");
-  });
+      loginForm.reset();
+      setFeedback(`Welcome back, ${user.firstName}!`, "success");
+    });
+  }
+
+  if (randomButton && passwordField) {
+    randomButton.addEventListener("click", () => {
+      passwordField.value = "password invalid";
+    });
+  }
 })();
