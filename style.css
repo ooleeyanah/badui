@@ -102,8 +102,13 @@ text {
   text-align: left;
   font-family: cursive;
   text-shadow: 0cqi;
-  padding: 0cap;
   font-size : 32px;
+  background-color: green;
+  position: absolute;
+  padding: 10px 20px;
+  background-color: lightblue;
+  border: none;
+  cursor: pointer;
   color: red;
   background-color: green;
 }
@@ -150,4 +155,6 @@ input:hover {
   background-color: lightblue;
   border: none;
   cursor: pointer;
+  color: red;
+  background-color: green;
 }
