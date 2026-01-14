@@ -20,6 +20,12 @@ h2 {
   colour: e0ded7;
 }
 
+fname {
+  text-decoration: underline;
+}
+
+fname-req {
+
 p {
   font-size : 22px;
 
