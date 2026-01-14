@@ -103,7 +103,7 @@ div {
   background: #bfdbfe;
   margin-top: 8px;
 }
-#ad-1 {
+.ad {
   display: block;
   height: 250px;
   width: auto;
