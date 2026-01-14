@@ -85,7 +85,7 @@ text {
 }
 
 #text {
-  color: #524d07;
+  color: red;
   text-align: left;
   font-family: Impact;
   text-shadow: 0cqi;
@@ -114,7 +114,7 @@ div {
 }
 img {
   display: block;
-  height: 250px;
+  height: 450px;
   width: auto;
   left: 50%;
   transition: transform 0.3s ease;
