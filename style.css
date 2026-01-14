@@ -22,6 +22,7 @@ h2 {
 
 fname {
   text-decoration: underline;
+  text-size :11px;
 }
 
 fname-req {
