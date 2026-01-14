@@ -22,6 +22,12 @@ h2 {
   text-size-adjust :11px;
 }
 
+#lname-req {
+  font-size: 10px;
+  font-famiy: wingding;
+  color: #c4126b;
+}
+
 #lname {
   color: #524d07;
   text-align: left;
