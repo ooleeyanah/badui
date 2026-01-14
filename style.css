@@ -15,7 +15,6 @@ body {
   background-size: 20px 20px;
   width: 6000px;
   overflow-x: auto;
-  position: relative;
 }
 
 h1 { 
