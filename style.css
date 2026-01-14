@@ -104,7 +104,9 @@ div {
   margin-top: 8px;
 }
 #ad-1 {
+  display: block;
   height: 200px;
   width: auto;
-  align-self: center;
+  left: auto;
+  right: auto;
 }
