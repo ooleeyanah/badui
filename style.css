@@ -15,6 +15,7 @@ body {
   background-size: 20px 20px;
   width: 6000px;
   overflow-x: auto;
+  position: relative;
 }
 
 h1 { 
@@ -136,4 +137,12 @@ input {
 }
 input:hover {
    transform: rotate(360deg);
+}
+
+.random_butt {
+  position: absolute;
+  padding: 10px 20px;
+  background-color: lightblue;
+  border: none;
+  cursor: pointer;
 }
