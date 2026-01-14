@@ -19,7 +19,6 @@ h2 {
 
 #fname {
   text-decoration: underline;
-  
   text-size-adjust :11px;
 }
 
@@ -35,7 +34,6 @@ h2 {
 #uname {
   color: #524d07;
   text-align: right;
-  font-family: cursive;
   font-family: dingbats;
   text-shadow: 0cqi;
   padding: 0cap;
@@ -46,7 +44,6 @@ h2 {
   color: #524d07;
   text-align: left;
   font-family: cursive;
-  font-family: dingbats;
   text-shadow: 0cqi;
   padding: 0cap;
   font-size : 32px;
@@ -55,8 +52,7 @@ h2 {
 #text {
   color: #524d07;
   text-align: left;
-  font-family: cursive;
-  font-family: dingbats;
+  font-family: Impact;
   text-shadow: 0cqi;
   padding: 0cap;
   font-size : 32px;
@@ -74,12 +70,9 @@ h2 {
 
 #fname-req {
   text-size: 10px;
-  color: #e0ded7
-
-p {
-  font-size : 22px;
-
+  color: #e0ded7;
 }
+
 #random-btn {
   color: red;
   background-color: green;
@@ -93,12 +86,3 @@ div {
   background: #bfdbfe;
   margin-top: 8px;
 }
-
-
-
-
-
-
-
-
-  
