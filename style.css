@@ -17,7 +17,7 @@ h1 {
 }
 
 h2 { 
-  colour: e0ded7;
+  colour: #e0ded7;
 }
 
 fname {
@@ -25,7 +25,59 @@ fname {
   text-size :11px;
 }
 
+lname {
+  color: #524d07;
+  text-align: left;
+  font-family: cursive;
+  font-family: dingbats;
+  text-shadow: 0cqi;
+  padding: 0cap;
+  font-size : 32px;
+}
+
+uname {
+  color: #524d07;
+  text-align: left;
+  font-family: cursive;
+  font-family: dingbats;
+  text-shadow: 0cqi;
+  padding: 0cap;
+  font-size : 32px;
+}
+
+random-btn {
+  color: #524d07;
+  text-align: left;
+  font-family: cursive;
+  font-family: dingbats;
+  text-shadow: 0cqi;
+  padding: 0cap;
+  font-size : 32px;
+}
+
+text {
+  color: #524d07;
+  text-align: left;
+  font-family: cursive;
+  font-family: dingbats;
+  text-shadow: 0cqi;
+  padding: 0cap;
+  font-size : 32px;
+}
+
+signup-btn {
+  color: #524d07;
+  text-align: left;
+  font-family: cursive;
+  font-family: dingbats;
+  text-shadow: 0cqi;
+  padding: 0cap;
+  font-size : 32px;
+}
+
 fname-req {
+  text-size: 10px;
+  color: #e0ded7
 
 p {
   font-size : 22px;
