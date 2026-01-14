@@ -7,15 +7,14 @@
   margin: 20px;
       }
   
-  }
 body {
   background-color: #e5e5f7;
   background-image:  repeating-linear-gradient(45deg, #444cf7 25%, transparent 25%, transparent 75%, #444cf7 75%, #444cf7), repeating-linear-gradient(45deg, #444cf7 25%, #e5e5f7 25%, #e5e5f7 75%, #444cf7 75%, #444cf7);
   background-position: 0 0, 10px 10px;
   background-size: 20px 20px;
   width: 6000px;
-  overflow-x: auto;
-}
+  position: relative;
+    }
 
 h1 { 
   color: #f2e312;
@@ -25,14 +24,14 @@ h1 {
   text-shadow: 0cqi;
   padding: 6cap;
   font-size : 32px;
-}
+  }
 
 h2 { 
   color: red;
   text-align: 30%;
   padding-left: 100px;
   background: white;
-}
+  }
 
 #fname {
   text-decoration: underline;
