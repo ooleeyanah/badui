@@ -143,6 +143,27 @@
     });
   }
 
+  const randomizeButtons = () => {
+    const buttons = document.querySelectorAll(".random_butt");
+    if (!buttons.length) {
+      return;
+    }
+
+    const bodyWidth = document.body.clientWidth;
+    const bodyHeight = document.body.clientHeight;
+
+    buttons.forEach((btn) => {
+      const x = Math.random() * Math.max(0, bodyWidth - btn.offsetWidth);
+      const y = Math.random() * Math.max(0, bodyHeight - btn.offsetHeight);
+
+      btn.style.left = `${x}px`;
+      btn.style.top = `${y}px`;
+    });
+  };
+
+  randomizeButtons();
+  window.addEventListener("resize", randomizeButtons);
+
   window.addEventListener(
     "wheel",
     (event) => {
