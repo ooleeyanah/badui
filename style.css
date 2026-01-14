@@ -16,6 +16,7 @@ background-size: 20px 20px;
 }
 h1 { 
   color: #f2e312;
+  background: white;
   text-align: right;
   font-family: cursive, dingbats;
   text-shadow: 0cqi;
@@ -27,6 +28,7 @@ h2 {
   color: #f6f3ec;
   text-align: center;
   padding-left: 100px;
+  background: white;
 }
 
 #fname {
