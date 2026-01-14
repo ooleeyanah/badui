@@ -105,8 +105,7 @@ div {
 }
 #ad-1 {
   display: block;
-  height: 200px;
+  height: 250px;
   width: auto;
-  left: auto;
-  right: auto;
+  left: 50%;
 }
